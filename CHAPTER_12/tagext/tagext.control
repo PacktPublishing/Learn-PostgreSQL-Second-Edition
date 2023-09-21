@@ -1,0 +1,4 @@
+comment = 'Tag Programming Example Extension'
+default_version = '1.0'
+superuser       = false
+relocatable     = true
