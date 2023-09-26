@@ -155,7 +155,7 @@ forumdb=# SELECT pg_terminate_backend( 987 );
 In the case a command on the operating system must be run with superuser (`root`) privileges, the command will be run via `sudo(1)`, as in:
 
 ```sql
-$ sudo initdb -D /postgres/12
+$ sudo initdb -D /postgres/data/16
 ```
 
 and therefore in this case the command prompt will not change, rather the presence of the `sudo(1)` command indicates `root` privileges are required.
