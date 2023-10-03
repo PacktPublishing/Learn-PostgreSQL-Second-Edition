@@ -1,0 +1,29 @@
+               __                                                      
+              / /  ___  __ _ _ __ _ __                                 
+             / /  / _ \/ _` | '__| '_ \                                
+            / /__|  __/ (_| | |  | | | |                               
+            \____/\___|\__,_|_|  |_| |_|                               
+                                                           
+   ___          _                 __    ____  __    
+  / _ \___  ___| |_ __ _ _ __ ___/ _\  /___ \/ /    
+ / /_)/ _ \/ __| __/ _` | '__/ _ \ \  //  / / /     
+/ ___/ (_) \__ \ || (_| | | |  __/\ \/ \_/ / /___   
+\/    \___/|___/\__\__, |_|  \___\__/\___,_\____/   
+                   |___/                                   
+
+<https://www.packtpub.com/product/learn-postgresql/9781838985288>
+
+Demo container for the Chapter 14: Logging and Auditing
+
+This container is running PgBadger every five minutes to update
+the statistics about the cluster usage.
+Connect your browser at
+
+          http://localhost:8080
+
+to see the dashboard.
+
+Inspect the user's crontab (`crontab -l`) to see how the dashboard
+is produced.
+    
+

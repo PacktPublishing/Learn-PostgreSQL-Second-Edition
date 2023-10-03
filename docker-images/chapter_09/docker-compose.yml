@@ -1,0 +1,21 @@
+version: '3.3'
+
+services:
+  learn_postgresql:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    hostname: 'learn_postgresql'
+    ports:
+      - '65001:5432'
+    environment:
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: 'LearnPostgreSQL16'
+      POSTGRES_DB: 'postgres'
+      PGDATA: '/postgres/16/data'
+      SERVER_NAME: 'pg_standalone'
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d/
+      - ~/LearnPostgreSQL/docker-vols/chapter09/data:/postgres/16/data
+      - ~/LearnPostgreSQL/docker-vols/chapter09/tablespaces/ts_a:/data/tablespaces/ts_a
+      - ~/LearnPostgreSQL/docker-vols/chapter09/tablespaces/ts_b:/data/tablespaces/ts_b

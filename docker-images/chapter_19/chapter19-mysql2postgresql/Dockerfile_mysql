@@ -1,0 +1,8 @@
+FROM mariadb:10.4.19
+
+RUN echo "Learn PostgreSQL 16" > /etc/motd
+
+RUN echo '[ ! -z "$TERM" -a -r /etc/motd ] && cat /etc/motd' >> /etc/bash.bashrc
+RUN echo '[ ! -z "$TERM" -a -r /etc/motd ] && export PATH=$PATH:/root' >> /etc/bash.bashrc
+
+COPY motd /etc/motd

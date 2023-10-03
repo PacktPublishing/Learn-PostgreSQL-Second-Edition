@@ -1,0 +1,36 @@
+version: '3.3'
+
+services:
+  learn_postgresql_pub:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    hostname: 'pg_pub'
+    ports:
+      - '65001:5432'
+    environment:
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: 'LearnPostgreSQL16'
+      POSTGRES_DB: 'postgres'
+      PGDATA: '/postgres/16/data'
+      SERVER_NAME: 'pg_pub'
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d/
+      - ~/LearnPostgreSQL/docker-vols/chapter18_locgical_pub_clear/data:/postgres/16/data
+ 
+  learn_postgresql_sub:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    hostname: 'pg_sub'
+    ports:
+      - '65002:5432'
+    environment:
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: 'LearnPostgreSQL16'
+      POSTGRES_DB: 'postgres'
+      PGDATA: '/postgres/16/data'
+      SERVER_NAME: 'pg_sub'
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d/
+      - ~/LearnPostgreSQL/docker-vols/chapter18_logical_sub_clear/data:/postgres/16/data

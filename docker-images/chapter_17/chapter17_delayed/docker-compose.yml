@@ -1,0 +1,36 @@
+version: '3.3'
+
+services:
+  learn_postgresql_master:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    hostname: 'pg_master'
+    ports:
+      - '65005:5432'
+    environment:
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: 'LearnPostgreSQL16'
+      POSTGRES_DB: 'postgres'
+      PGDATA: '/postgres/16/data'
+      SERVER_NAME: 'pg_master'
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d/
+      - ~/LearnPostgreSQL/docker-vols/chapter17_streaming_master_delayed/data:/postgres/16/data
+ 
+  learn_postgresql_replica:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    hostname: 'pg_replica'
+    ports:
+      - '65006:5432'
+    environment:
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: 'LearnPostgreSQL16'
+      POSTGRES_DB: 'postgres'
+      PGDATA: '/postgres/16/data'
+      SERVER_NAME: 'pg_replica'
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d/
+      - ~/LearnPostgreSQL/docker-vols/chapter17_streaming_replica_delayed/data:/postgres/16/data

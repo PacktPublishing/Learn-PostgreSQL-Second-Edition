@@ -1,0 +1,22 @@
+version: '3.3'
+
+services:
+  learn_postgresql:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    hostname: 'learn_postgresql'
+    ports:
+      - '65001:5432'
+      - '8080:8080'
+    environment:
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: 'LearnPostgreSQL16'
+      POSTGRES_DB: 'postgres'
+      PGDATA: '/postgres/16/data'
+      SERVER_NAME: 'pg_standalone'
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d/
+      - ~/LearnPostgreSQL/docker-vols/chapter14:/postgres/16/data
+#      - ./postgresql.conf:/postgres/16/data/postgresql.conf
+#      - ./lighthttpd.conf:/etc/lighttpd/lighttpd.conf
