@@ -97,6 +97,19 @@ $ sh run-pg-docker.sh chapter_05
 
 The script will start the Docker container, downloading and installing required software within the container, and providing you to a shell prompt within the container. from such a prompt, you will be able to execute shell commands and connect to the database as explained in the book.
 
+If you don't specify any particular chapter, the script will run the *standalone* image that is a book specific default PostgreSQL installation useful for the very first chapters and when no other specific per-chapter image has been developed.
+The following commands are equivalent:
+
+```shell
+$ cd docker-images
+$ sh run-pg-docker.sh
+```
+
+```shell
+$ cd docker-images
+$ sh run-pg-docker.sh standalone
+```
+
 
 ## Code Examples
 
@@ -104,11 +117,11 @@ All the code examples are contained in this repository.
 
 ### Naming conventions used in this repository
 
-Every chapter has its own folder named after the chapter number, for instance `Chapter01` for the very first chapter.
+Every chapter with specific code examples has its own folder named after the chapter number, for instance `Chapter_04` .
 
 In order to ease the execution of the code examples by readers, every chapter will have a set of source scripts that the reader can immediatly load into her database.
 
-Every file is named after the its type, for example `.sql` for an SQL script or a collection of SQL statements.
+Every file is named after its type, for example `.sql` for an SQL script or a collection of SQL statements.
 
 
 ### Pictures
@@ -162,36 +175,23 @@ and therefore in this case the command prompt will not change, rather the presen
 
 ## Creating the example database
 
-The book is built over an example database that implements an *online forum* storage. In order to be able to execute any example of any chapter, the reader has to initialize the forum database.
+The book is built over an example database that implements an *online forum* storage. In order to be able to execute any example of any chapter, the reader has to initialize the forum database. If you use the Docker images, the forum database is already available to you, otherwise if you want to run the examples on your own PostgreSQL installation, it is better to run the initialization of the database.
 
 The scripts in the folder `setup`, executed in lexicographically order, implement the example database and setup the environment so that other examples can be run against the database.
 
-In particular, in order to get the database structure as shown in Chapter 4 and the followings, you have to executed something has follows:
+In particular, in order to get the database structure as shown in the book, you have to do at least the following two steps:
 
 ```shell
-psql -U <your-username> -h <database-host> < setup/00-forum-database.sql
+$ cd setup
+$ sh 001-create-database-users.sh
+$ psql -U postgres  < 002-forum-database.sql
 ```
 
 where
-- `your-username` is a PostgreSQL username of choice;
-- `database-host` is the host the database is running on, if different from `localhost`.
+- the first script will create the users (`luca` and `enrico`)
+- the second script will create the user `forum`, the database `forumdb` and will load a few tuples into the tables.
 
-The end result will be to have the `forumdb` created and populated with tables.
-You can also invoke the script interactively from within a `psql` connection, such as:
-
-```shell
-psql -U <your-username> -h <database-host> template1
-
-template1=> \i setup/-00-forum-database.sql
-```
-
-The simplest form to get the example database up and running is the following one (assuming you are running PostgreSQL locally):
-
-```shell
-$ psql -U postgres   template1 -c 'CREATE ROLE forumdb_user WITH LOGIN CREATEDB;'
-$ psql -U forum_user template1 < setup/00-forum-database.sql
-```
-
+Please note that in order to create the database (as per second step) you need access with a database user that has the capability of create new databases, hence the usage of the user `postgres`. If you are not sure about what you are doing, please use the Docker images until you have understood how to create and populate a new database and new users.
 
 
 ### Related products
