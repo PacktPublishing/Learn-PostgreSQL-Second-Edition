@@ -30,6 +30,10 @@ fi
 
 sudo docker exec --user postgres --workdir /var/lib/postgresql -it  $DOCKER_CONTAINER_NAME /bin/bash
 
+if [ $? -ne 0 ]; then
+    echo "Getting the logs to understand what went wrong"
+    sudo docker logs $DOCKER_CONTAINER_NAME
+fi
 
 echo "Stopping the container $DOCKER_CONTAINER_NAME"
 sudo docker stop $DOCKER_CONTAINER_NAME
