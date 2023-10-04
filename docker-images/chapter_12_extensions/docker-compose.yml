@@ -14,6 +14,7 @@ services:
       POSTGRES_DB: 'postgres'
       PGDATA: '/postgres/16/data'
       SERVER_NAME: 'pg_standalone'
+      POSTGRES_INITDB_ARGS: ' --no-locale --encoding=UTF8'
     volumes:
       - ./init:/docker-entrypoint-initdb.d/
       - ~/LearnPostgreSQL/docker-vols/chapter12:/postgres/16/data
