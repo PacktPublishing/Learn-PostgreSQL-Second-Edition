@@ -5,9 +5,6 @@ RUN apt-get update \
 
 RUN mkdir -p /data/tablespaces      \
  && mkdir -p /src/tagext            \
- && mkdir -p /data/tablespaces/ts_a \
- && mkdir -p /data/tablespaces/ts_b \
- && mkdir -p /data/tablespaces/ts_c \
  && chown -R postgres:postgres /src \
  && chown -R postgres:postgres /data 
 
