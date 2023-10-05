@@ -1,7 +1,7 @@
 FROM postgres:latest
 
 RUN apt-get update \
- && apt-get install -y net-tools vim sudo less emacs-nox procps postgresql-contib
+ && apt-get install -y net-tools vim sudo less emacs-nox procps postgresql-contrib
 
 RUN mkdir -p /data/tablespaces        \
  && chown -R postgres:postgres /data  
