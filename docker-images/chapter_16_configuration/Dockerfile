@@ -15,3 +15,5 @@ COPY motd /etc/motd
 
 COPY memory.conf /postgres/16/data/memory.conf
 
+RUN echo en_US.UTF-8 UTF-8 > /etc/locale.gen
+RUN locale-gen en_US.UTF-8

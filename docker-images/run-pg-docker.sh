@@ -62,12 +62,18 @@ if [ ! -f "Dockerfile" ]; then
 fi
 
 # now build the container
-DOCKER_CONTAINER_NAME=${DOCKER_IMAGE_TO_RUN}_learn_postgresql_1
+DOCKER_CONTAINER_NAME=${DOCKER_IMAGE_TO_RUN}-learn_postgresql-1
 $SUDO $DOCKER_COMPOSE build
 $SUDO $DOCKER_COMPOSE up -d --remove-orphans
 
+if [ $? -ne 0 ]; then
+    echo "Cannot start the container $DOCKER_CONTAINER_NAME"
+    exit 10
+fi
+
+
 SECS=5
-echo "Waiting $SECS secs for the container to complete starting..."
+echo "Waiting $SECS secs for the container <$DOCKER_CONTAINER_NAME> to complete starting up..."
 sleep $SECS
 
 if [ "$DOCKER_CONTAINER_NAME" = "chapter9_learn_postgresql_1" ]; then
@@ -75,6 +81,7 @@ if [ "$DOCKER_CONTAINER_NAME" = "chapter9_learn_postgresql_1" ]; then
 	$SUDO docker exec $DOCKER_CONTAINER_NAME chown -R postgres:postgres /data
 fi
 
+echo $SUDO docker exec --user postgres --workdir /var/lib/postgresql -it  $DOCKER_CONTAINER_NAME /bin/bash
 $SUDO docker exec --user postgres --workdir /var/lib/postgresql -it  $DOCKER_CONTAINER_NAME /bin/bash
 
 if [ $? -ne 0 ]; then

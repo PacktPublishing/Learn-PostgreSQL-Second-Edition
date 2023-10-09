@@ -28,3 +28,5 @@ COPY ./sudoers.conf /etc/sudoers
 RUN chmod 110 /etc/sudoers
 RUN chown root:root /etc/sudoers
 
+RUN echo en_US.UTF-8 UTF-8 > /etc/locale.gen
+RUN locale-gen en_US.UTF-8

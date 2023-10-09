@@ -18,3 +18,5 @@ COPY ./tagext /src/tagext
 RUN chown -R postgres:postgres /src
 
 
+RUN echo en_US.UTF-8 UTF-8 > /etc/locale.gen
+RUN locale-gen en_US.UTF-8
