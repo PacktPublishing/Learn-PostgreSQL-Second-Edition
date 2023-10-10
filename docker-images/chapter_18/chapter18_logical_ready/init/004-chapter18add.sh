@@ -18,7 +18,7 @@ if [ "$SERVER_NAME" == "pg_sub" ]; then
   psql -U postgres -c "create database forumdb;" postgres
   psql -U postgres -c "alter database forumdb owner to forum" postgres
   psql -U postgres -c "CREATE SCHEMA forum AUTHORIZATION forum" forumdb
-  psql -U postgres -c "CREATE TABLE forum.users (pk integer NOT NULL,username text NOT NULL,gecos text, email text NOT NULL)" forumdb
+  psql -U postgres -c "CREATE TABLE forum.users (pk integer NOT NULL primary key,username text NOT NULL,gecos text, email text NOT NULL)" forumdb
   psql -U postgres -c "ALTER TABLE forum.users OWNER TO forum" forumdb
   psql -U postgres -c "create subscription users_sub connection 'user=replicarole password=LearnPostgreSQL host=pg_pub port=5432 dbname=forumdb' publication users_pub" forumdb
 fi

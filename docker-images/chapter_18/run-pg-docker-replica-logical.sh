@@ -20,16 +20,42 @@ DOCKER_CONTAINER_NAME_REPLICA=${DOCKER_IMAGE_TO_RUN}_learn_postgresql_replica_1
 DOCKER_CONTAINER_NAME_REPLICA_SUB=${DOCKER_IMAGE_TO_RUN}_learn_postgresql_replica_sub_1
 
 
-sudo docker-compose  build
-sudo docker-compose up -d --remove-orphans
+# check for docker-compose
+DOCKER_COMPOSE=$(which docker-compose 2>/dev/null)
+if [ ! -x "$DOCKER_COMPOSE" ]; then
 
-SECS=25
+    # try to run docker compose
+    `docker compose > /dev/null 2>&1`
+    if [ $? -eq 0 ]; then
+	DOCKER_COMPOSE="docker compose"
+	echo "Using \`docker compose\`"
+    else
+	echo "\`docker-compose\` not installed, cannot proceed"
+	exit 2
+    fi
+fi
+
+# if running as root, no need to use sudo
+if [ $UID = 0 ]; then
+    SUDO=""
+else
+    SUDO=$(which sudo 2>/dev/null)
+    if [ ! -x "$SUDO" ]; then
+	echo "\`sudo\` is required to run the script!"
+	exit 1
+    fi
+fi
+
+$SUDO docker-compose  build
+$SUDO docker-compose up -d --remove-orphans
+
+SECS=40
 echo "Waiting $SECS secs for the container to complete starting..."
 sleep $SECS
 
-sudo docker exec --user postgres --workdir /var/lib/postgresql -it  $DOCKER_CONTAINER_NAME /bin/bash
+$SUDO docker exec --user postgres --workdir /var/lib/postgresql -it  $DOCKER_CONTAINER_NAME /bin/bash
 
 echo "Stopping the container $DOCKER_CONTAINER_NAME"
-sudo docker stop $DOCKER_CONTAINER_NAME
-sudo docker stop $DOCKER_CONTAINER_NAME_REPLICA
-sudo docker stop $DOCKER_CONTAINER_NAME_REPLICA_SUB
+$SUDO docker stop $DOCKER_CONTAINER_NAME
+$SUDO docker stop $DOCKER_CONTAINER_NAME_REPLICA
+$SUDO docker stop $DOCKER_CONTAINER_NAME_REPLICA_SUB

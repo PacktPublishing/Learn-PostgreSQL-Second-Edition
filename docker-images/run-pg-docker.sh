@@ -27,9 +27,6 @@ if [ ! -x "$DOCKER_COMPOSE" ]; then
 	echo "\`docker-compose\` not installed, cannot proceed"
 	exit 2
     fi
-
-
-
 fi
 
 
@@ -88,8 +85,8 @@ $SUDO docker exec --user postgres --workdir /var/lib/postgresql -it  $DOCKER_ID 
 
 if [ $? -ne 0 ]; then
     echo "Getting the logs to understand what went wrong"
-    $SUDO docker logs $DOCKER_CONTAINER_NAME
+    $SUDO docker logs $DOCKER_ID
 fi
 
 echo "Stopping the container $DOCKER_CONTAINER_NAME"
-$SUDO docker stop $DOCKER_CONTAINER_NAME
+$SUDO docker stop $DOCKER_ID
