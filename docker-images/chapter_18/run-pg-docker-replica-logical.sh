@@ -46,10 +46,10 @@ else
     fi
 fi
 
-$SUDO docker-compose  build
-$SUDO docker-compose up -d --remove-orphans
+$SUDO $DOCKER_COMPOSE build --force-rm --no-cache
+$SUDO $DOCKER_COMPOSE up -d --remove-orphans
 
-SECS=40
+SECS=60
 echo "Waiting $SECS secs for the container to complete starting..."
 sleep $SECS
 

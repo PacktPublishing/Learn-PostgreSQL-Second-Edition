@@ -60,7 +60,7 @@ fi
 
 # now build the container
 DOCKER_CONTAINER_NAME=${DOCKER_IMAGE_TO_RUN}_learn_postgresql_1
-$SUDO $DOCKER_COMPOSE build
+$SUDO $DOCKER_COMPOSE build --force-rm --no-cache
 $SUDO $DOCKER_COMPOSE up -d --remove-orphans
 
 if [ $? -ne 0 ]; then
@@ -85,8 +85,8 @@ $SUDO docker exec --user postgres --workdir /var/lib/postgresql -it  $DOCKER_ID 
 
 if [ $? -ne 0 ]; then
     echo "Getting the logs to understand what went wrong"
-    $SUDO docker logs $DOCKER_ID
+    $SUDO docker logs $DOCKER_CONTAINER_NAME
 fi
 
 echo "Stopping the container $DOCKER_CONTAINER_NAME"
-$SUDO docker stop $DOCKER_ID
+$SUDO docker stop $DOCKER_CONTAINER_NAME
