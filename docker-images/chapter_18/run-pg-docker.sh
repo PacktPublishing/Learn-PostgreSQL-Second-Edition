@@ -45,8 +45,8 @@ else
 fi
 
 
-$SUDO docker-compose  build
-$SUDO docker-compose up -d --remove-orphans
+$SUDO $DOCKER_COMPOSE build
+$SUDO $DOCKER_COMPOSE up -d --remove-orphans
 
 SECS=25
 echo "Waiting $SECS secs for the container to complete starting..."
