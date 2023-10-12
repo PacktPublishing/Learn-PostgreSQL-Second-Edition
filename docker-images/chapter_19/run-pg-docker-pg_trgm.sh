@@ -33,7 +33,7 @@ if [ ! -x "$DOCKER_COMPOSE" ]; then
 fi
 
 # if running as root, no need to use sudo
-if [ $UID = 0 ]; then
+if [ "$UID" = "0" ]; then
     SUDO=""
 else
     SUDO=$(which sudo 2>/dev/null)
@@ -43,7 +43,7 @@ else
     fi
 fi
 
-$SUDO $DOCKER_COMPOSE build
+$SUDO $DOCKER_COMPOSE build --force-rm --no-cache
 $SUDO $DOCKER_COMPOSE up -d --remove-orphans
 
 SECS=5
