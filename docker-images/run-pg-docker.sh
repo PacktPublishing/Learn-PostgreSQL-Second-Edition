@@ -3,7 +3,7 @@
 # sanity checks and defaults
 
 # if running as root, no need to use sudo
-if [ $UID = 0 ]; then
+if [ "$UID" = "0" ]; then
     SUDO=""
 else
     SUDO=$(which sudo 2>/dev/null)
@@ -12,7 +12,6 @@ else
 	exit 1
     fi
 fi
-
 
 # check for docker-compose
 DOCKER_COMPOSE=$(which docker-compose 2>/dev/null)

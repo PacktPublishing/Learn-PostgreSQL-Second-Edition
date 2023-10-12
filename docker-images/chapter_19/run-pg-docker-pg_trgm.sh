@@ -33,7 +33,7 @@ if [ ! -x "$DOCKER_COMPOSE" ]; then
 fi
 
 # if running as root, no need to use sudo
-if [ $UID = 0 ]; then
+if [ "$UID" = "0" ]; then
     SUDO=""
 else
     SUDO=$(which sudo 2>/dev/null)

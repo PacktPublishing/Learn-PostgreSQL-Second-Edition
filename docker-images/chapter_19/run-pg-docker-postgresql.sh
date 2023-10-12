@@ -6,7 +6,7 @@ cd $DOCKER_IMAGE_TO_RUN
 DOCKER_CONTAINER_NAME=${DOCKER_IMAGE_TO_RUN}_postgresql_1
 
 # if running as root, no need to use sudo
-if [ $UID = 0 ]; then
+if [ "$UID" = "0" ]; then
     SUDO=""
 else
     SUDO=$(which sudo 2>/dev/null)
