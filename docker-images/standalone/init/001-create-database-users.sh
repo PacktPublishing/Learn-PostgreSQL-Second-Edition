@@ -9,5 +9,5 @@ psql -U postgres -c "create role forum_stats with nologin;" postgres
 
 psql -U postgres -c "grant book_authors to luca" postgres
 psql -U postgres -c "grant forum_stats to luca" postgres
-psql -U postgres -c "grant book_authors to enrico" postgres
+#psql -U postgres -c "grant book_authors to enrico" postgres
 psql -U postgres -c "grant forum_admins to luca" postgres
