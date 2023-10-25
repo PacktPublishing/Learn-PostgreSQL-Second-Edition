@@ -194,6 +194,9 @@ Please note that in order to create the database (as per second step) you need a
 ### Related products
 - Mastering PostgreSQL 15 - Fifth Edition [[Packt]](https://www.packtpub.com/product/mastering-postgresql-15-fifth-edition/9781803248349) [[Amazon]](https://www.amazon.in/Mastering-PostgreSQL-techniques-fault-tolerant-applications/dp/1803248343)
 - SQL for Data Analytics - Third Edition [[Packt]](https://www.packtpub.com/product/sql-for-data-analytics-third-edition/9781801812870) [[Amazon]](https://www.amazon.in/SQL-Data-Analytics-Harness-insights/dp/180181287X)
+- PostgreSQL 11 Server Side Programming - Quick Start Guide [[Packt]](https://www.packtpub.com/product/postgresql-11-server-side-programming-quick-start-guide/9781789342222) [[Amazon]](https://www.amazon.com/PostgreSQL-Server-Programming-Quick-Start-ebook/dp/B07L1MP1F8/ref=sr_1_1?crid=2I7PGMZDCI9O0&dchild=1&keywords=postgresql+11+server+side+programming+quick+start+guide&qid=1605375687&sprefix=postgresql+11+server+%2Caps%2C278&sr=8-1)
+- Mastering PostgreSQL 12 [[Packt]](https://www.packtpub.com/product/mastering-postgresql-12-third-edition/9781838988821) [[Amazon]](https://www.amazon.com/dp/1838988823)
+- PostgreSQL 12 High Availability Cookbook - Third Edition [[Packt]](https://www.packtpub.com/product/postgresql-12-high-availability-cookbook-third-edition/9781838984854) [[Amazon]](https://www.amazon.com/dp/1838984852)
 
 
 
