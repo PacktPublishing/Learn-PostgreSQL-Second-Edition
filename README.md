@@ -22,7 +22,7 @@ You will learn how to install, configure and manage a PostgreSQL server, managin
 The book starts introducing the main concepts around PostgreSQL and how to install and connect to the database, and then progresses to the management of users, permissions and basic objects like tables. You will be taught about the Data Definition Language (DDL) and most common and useful statements and commands, as well as all the needed and common relational database concepts like foreign keys, trigger, functions and so on. Later, you will explore how to configure and tune your cluster to get the best out of your PostgreSQL service, how to create and manage indexes to fast data retrieval, and how to make and restore backup copies of your data. Last, you will learn how to create your own high availability solution by means of replications, either physical or logical, and you will get a glance at some of the most common and useful tools and extension you can apply to your cluster.
 By the end of this book, you'll be well-versed in the Postgres database and be able to set up your own PostgreSQL instance and use it to build robust data-centric solutions.
 
-If you feel this book is for you, get your [copy](https://www.amazon.com/dp/183898528X) today!
+If you feel this book is for you, get your [copy](https://www.amazon.in/-/hi/Luca-Ferrari-ebook/dp/B0CJRRF2FP) today!
 
 
 
@@ -67,8 +67,6 @@ The book is divided into five main parts. The following is a list of the book ch
 ### Part 5
 
 19) Useful Tools and Useful Extensions
-
-
 
 
 ## Chapters Content
@@ -135,9 +133,6 @@ Any picture will be named with the pattern `Chapter<CC>_picture<PP>.<type>` wher
 
 *Images could appear differently from the printed book due to graphical needs*.
 
-[We also provide a PDF file](https://static.packt-cdn.com/downloads/9781838985288_ColorImages.pdf)
-that has color images of the screenshots/diagrams used in this book.
-
 
 ### Command prompts
 
@@ -197,9 +192,8 @@ Please note that in order to create the database (as per second step) you need a
 
 
 ### Related products
-- PostgreSQL 11 Server Side Programming - Quick Start Guide [[Packt]](https://www.packtpub.com/product/postgresql-11-server-side-programming-quick-start-guide/9781789342222) [[Amazon]](https://www.amazon.com/PostgreSQL-Server-Programming-Quick-Start-ebook/dp/B07L1MP1F8/ref=sr_1_1?crid=2I7PGMZDCI9O0&dchild=1&keywords=postgresql+11+server+side+programming+quick+start+guide&qid=1605375687&sprefix=postgresql+11+server+%2Caps%2C278&sr=8-1)
-- Mastering PostgreSQL 12 [[Packt]](https://www.packtpub.com/product/mastering-postgresql-12-third-edition/9781838988821) [[Amazon]](https://www.amazon.com/dp/1838988823)
-- PostgreSQL 12 High Availability Cookbook - Third Edition [[Packt]](https://www.packtpub.com/product/postgresql-12-high-availability-cookbook-third-edition/9781838984854) [[Amazon]](https://www.amazon.com/dp/1838984852)
+- Mastering PostgreSQL 15 - Fifth Edition [[Packt]](https://www.packtpub.com/product/mastering-postgresql-15-fifth-edition/9781803248349) [[Amazon]](https://www.amazon.in/Mastering-PostgreSQL-techniques-fault-tolerant-applications/dp/1803248343)
+- SQL for Data Analytics - Third Edition [[Packt]](https://www.packtpub.com/product/sql-for-data-analytics-third-edition/9781801812870) [[Amazon]](https://www.amazon.in/SQL-Data-Analytics-Harness-insights/dp/180181287X)
 
 
 
@@ -214,11 +208,6 @@ has been passionate about computer science since he was a 13-year-old, his first
 
 
 ### Suggestions and Feedback
-[Click here](https://docs.google.com/forms/d/e/1FAIpQLSdy7dATC6QmEL81FIUuymZ0Wy9vH1jHkvpY57OiMeKGqib_Ow/viewform) if you have any feedback or suggestions.
+[Click here](https://packt.link/r/1837635641) if you have any feedback or suggestions.
 
 
-
-### Download a free PDF
-
- <i>If you have already purchased a print or Kindle version of this book, you can get a DRM-free PDF version at no cost.<br>Simply click on the link to claim your free PDF.</i>
-<p align="center"> <a href="https://packt.link/free-ebook/9781838985288">https://packt.link/free-ebook/9781838985288 </a> </p>
