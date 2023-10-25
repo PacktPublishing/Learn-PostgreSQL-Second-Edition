@@ -4,7 +4,7 @@
 # Learn PostgreSQL - second edition
 
 <a href="https://www.packtpub.com/product/learn-postgresql-second-edition/9781837635641">
-<img src="https://static.packt-cdn.com/products/9781838985288/cover/smaller" alt="Learn PostgreSQL - second edition" height="256px" align="right">
+<img src="https://content.packt.com/B19640/cover_image_small.jpg" alt="Learn PostgreSQL - second edition" height="256px" align="right">
 </a>
 
 
