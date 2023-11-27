@@ -210,6 +210,15 @@ has been passionate about computer science since he was a 13-year-old, his first
 
 
 
+# Errata
+
+This section provides information about errata.
+
+- **Chapter 4**, *page 92*, point `5`: the sentence `[...]will insert three records in the categories table:` must be read as `[ ...]will insert two records in the categories table:`. Reference `CA2287370`.
+- **Chapter 4**, *page 93*, point `7`: the sentence `[...] with title as orange and description as fruits, [...]` must be read as `[ ...] with title as C Language and description as Languages, [...]`. Reference `CA2287370`.
+
+
+
 ### Suggestions and Feedback
 [Click here](https://packt.link/r/1837635641) if you have any feedback or suggestions.
 
