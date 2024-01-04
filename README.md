@@ -214,7 +214,13 @@ has been passionate about computer science since he was a 13-year-old, his first
 
 This section provides information about errata.
 
-- **Chapter 4**, *page 92*, point `5`: the sentence `[...]will insert three records in the categories table:` must be read as `[ ...]will insert two records in the categories table:`. Reference `CA2287370`.
+- **Chapter 3**, *page 58*, there are a few occurrencies of the clause `IF EXISTS` that are missing the final `S`, the correct form of such a clause is `IF EXISTS`. In particular:
+  - the sentence "The `DROP ROLE` [...] supports the `IF EXIST [...]`" must be read as "The `DROP ROLE` [...] supports the `IF EXISTS [...]`";
+  - the example line `DROP ROLE IF EXIST this_role_does_not_exist` must be typed as `DROP ROLE IF EXISTS this_role_does_not_exist`;
+  - the sentence `[...] while with IF EXIST, you will rest assured [...]` must be read as `[...] while with IF EXISTS, you will rest assured [...]`;
+  - the sentence in the information box `There are several statements that support the IF EXIST clause [...]` must be read as `There are several statements that support the IF EXISTS clause [...]`;
+
+- **Chapter 4**, *page 92*, point `5`: the sentence `[...] will insert three records in the categories table:` must be read as `[...] will insert two records in the categories table:`. Reference `CA2287370`.
 - **Chapter 4**, *page 93*, point `7`: the sentence `[...] with title as orange and description as fruits, [...]` must be read as `[ ...] with title as C Language and description as Languages, [...]`. Reference `CA2287370`.
 
 
