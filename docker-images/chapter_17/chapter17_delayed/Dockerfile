@@ -1,4 +1,4 @@
-FROM postgres:latest
+FROM postgres:16.0
 
 RUN apt-get update \
  && apt-get install -y net-tools vim sudo less emacs-nox procps iproute2 iputils-ping 

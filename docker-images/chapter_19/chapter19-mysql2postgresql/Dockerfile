@@ -1,4 +1,4 @@
-FROM postgres:latest
+FROM postgres:16.0
 
 RUN apt-get update -y && apt-get upgrade -y && apt-get dist-upgrade && apt-get install -y pgloader
 
