@@ -222,7 +222,7 @@ This section provides information about errata.
 
 - **Chapter 4**, *page 92*, point `5`: the sentence `[...] will insert three records in the categories table:` must be read as `[...] will insert two records in the categories table:`. Reference `CA2287370`.
 - **Chapter 4**, *page 93*, point `7`: the sentence `[...] with title as orange and description as fruits, [...]` must be read as `[ ...] with title as C Language and description as Languages, [...]`. Reference `CA2287370`.
-
+- **Chapter 17**, *page 610*, section *The `wal_level` directive*: the sentence `The default value is mininal` is wrong and is corrected from the sentence immediatly following that states `[...] wal_level=replica which is the default value [...]`. The default value for the setting `wal_level` in modern PostgreSQL versions is `replica`. Reference `CA2379682`.
 
 
 ### Suggestions and Feedback
