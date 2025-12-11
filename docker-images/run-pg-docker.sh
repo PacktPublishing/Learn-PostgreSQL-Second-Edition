@@ -61,7 +61,10 @@ fi
 DOCKER_IMAGE_NAME=$(docker-compose config | grep 'image:' | awk '{print $2}' | head -n 1)
 IMAGE_EXISTS=$(docker images -q "$DOCKER_IMAGE_NAME")
 
-if [ -z "$IMAGE_EXISTS" ]; then
+if [ -n "$FORCE_REBUILD" ]; then
+	echo "FORCE_REBUILD is set. Rebuilding image $DOCKER_IMAGE_NAME..."
+    $SUDO $DOCKER_COMPOSE build --force-rm --no-cache
+elif [ -z "$IMAGE_EXISTS" ]; then
     # If the image doesn't exist, build it
     echo "Building the Docker image $DOCKER_IMAGE_NAME..."
     $SUDO $DOCKER_COMPOSE build --force-rm --no-cache
