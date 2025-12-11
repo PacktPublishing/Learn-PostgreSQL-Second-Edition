@@ -110,6 +110,13 @@ $ cd docker-images
 $ sh run-pg-docker.sh standalone
 ```
 
+Please note that the script `run-pg-docker.sh` will rebuild the Docker images from scratch *every time you run it*. If you want to skip this extra effort, you can se the environment variable `FORCE_REBUILD` to a value before running the script, as for instance:
+
+
+```shell
+$ export FORCE_REBUILD=yes
+$ sh run-pg-docker.sh
+```
 
 ## Code Examples
 
