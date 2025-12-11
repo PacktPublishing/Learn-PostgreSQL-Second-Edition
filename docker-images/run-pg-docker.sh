@@ -57,10 +57,31 @@ if [ ! -f "Dockerfile" ]; then
     exit 4
 fi
 
-# now build the container
-DOCKER_CONTAINER_NAME=${DOCKER_IMAGE_TO_RUN}_learn_postgresql_1
-$SUDO $DOCKER_COMPOSE build --force-rm --no-cache
+# Check if image exists locally
+DOCKER_IMAGE_NAME=$(docker-compose config | grep 'image:' | awk '{print $2}' | head -n 1)
+IMAGE_EXISTS=$(docker images -q "$DOCKER_IMAGE_NAME")
+
+if [ -n "$FORCE_REBUILD" ]; then
+	echo "FORCE_REBUILD is set. Rebuilding image $DOCKER_IMAGE_NAME..."
+    $SUDO $DOCKER_COMPOSE build --force-rm --no-cache
+elif [ -z "$IMAGE_EXISTS" ]; then
+    # If the image doesn't exist, build it
+    echo "Building the Docker image $DOCKER_IMAGE_NAME..."
+    $SUDO $DOCKER_COMPOSE build --force-rm --no-cache
+else
+    echo "Docker image $DOCKER_IMAGE_NAME already exists. Skipping build."
+fi
+
+# now start the container
+DOCKER_CONTAINER_NAME="${DOCKER_IMAGE_TO_RUN}-learn_postgresql-1"
 $SUDO $DOCKER_COMPOSE up -d --remove-orphans
+
+# now build the container
+# DOCKER_CONTAINER_NAME=${DOCKER_IMAGE_TO_RUN}_learn_postgresql_1
+# Compatibility with composev2
+# DOCKER_CONTAINER_NAME="${DOCKER_IMAGE_TO_RUN}-learn_postgresql-1"
+# $SUDO $DOCKER_COMPOSE build --force-rm --no-cache
+# $SUDO $DOCKER_COMPOSE up -d --remove-orphans
 
 if [ $? -ne 0 ]; then
     echo "Cannot start the container $DOCKER_CONTAINER_NAME"
